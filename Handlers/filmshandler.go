@@ -8,14 +8,14 @@ import (
 )
 
 type Response struct {
-	FilmsHandler []Models.Film `json:"filmshandler"`
+	FilmsHandler Models.Films `json:"filmshandler"`
 }
 
 func FilmsHandler(w http.ResponseWriter, r *http.Request) {
 
-	response := Response
+	var response Response
 
-	films := getFilms()
+	films := db.film.getAllFilms()
 
 	response.FilmsHandler = films
 
@@ -24,20 +24,4 @@ func FilmsHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	_, _ = w.Write(res)
-}
-
-func getFilms() []Models.Film {
-	films := []Models.Film
-
-	film := Models.Film
-	film.Id = 534
-	films = append(films, film)
-
-	film.Id = 426
-	films = append(films, film)
-
-	film.Id = 698
-	films = append(films, film)
-
-	return films
 }
