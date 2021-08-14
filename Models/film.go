@@ -1,4 +1,4 @@
-package Models
+package models
 
 type Film struct {
 	Id    int    `json:"id"`

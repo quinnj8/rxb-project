@@ -1,21 +1,22 @@
-package Handlers
+package handlers
 
 import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/quinnj8/rxb-project/Models"
+	"github.com/quinnj8/rxb-project/db"
+	"github.com/quinnj8/rxb-project/models"
 )
 
 type Response struct {
-	FilmsHandler Models.Films `json:"filmshandler"`
+	FilmsHandler []models.Film `json:"filmshandler"`
 }
 
 func FilmsHandler(w http.ResponseWriter, r *http.Request) {
 
 	var response Response
 
-	films := db.film.getAllFilms()
+	films := db.GetAllFilms()
 
 	response.FilmsHandler = films
 

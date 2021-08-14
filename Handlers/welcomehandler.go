@@ -1,4 +1,4 @@
-package Handlers
+package handlers
 
 import (
 	"encoding/json"
@@ -14,5 +14,5 @@ func WelcomeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 type WelcomeResponse struct {
-	Message string `json:"message"`
+	Message string `json:"messag"`
 }

@@ -11,9 +11,6 @@ const (
 	PORT = 5432
 )
 
-// ErrNoMatch is returned when we request a row that doesn't exist
-var ErrNoMatch = fmt.Errorf("no matching record")
-
 type Database struct {
 	Conn *sql.DB
 }
