@@ -1,4 +1,4 @@
-module github.com/rxbenefits/go-hw
+module github.com/quinnj8/rxb-project
 
 go 1.16
 
