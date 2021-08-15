@@ -12,7 +12,7 @@ type Response struct {
 	FilmsHandler []models.Film `json:"filmshandler"`
 }
 
-func FilmsHandler(w http.ResponseWriter, r *http.Request) {
+func GetFilms(w http.ResponseWriter, r *http.Request) {
 
 	var response Response
 
@@ -26,3 +26,29 @@ func FilmsHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	_, _ = w.Write(res)
 }
+
+func GetFilmsByTitle() {
+
+}
+
+func GetFilmsByRating() {
+
+}
+
+func GetFilmsByCategory() {
+
+}
+
+func GetFilmDetails() {
+
+}
+
+func AddFilmComment() {
+
+}
+
+func GetFilmComments() {
+	
+}
+
+

@@ -11,7 +11,7 @@ func main() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/Welcome", handlers.WelcomeHandler).Methods("GET")
-	r.HandleFunc("/Films", handlers.FilmsHandler).Methods("GET")
+	r.HandleFunc("/Films", handlers.GetFilms).Methods("GET")
 	http.Handle("/", r)
 	http.ListenAndServe(":8080", r)
 }
