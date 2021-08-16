@@ -31,18 +31,10 @@ func GetAllFilms(w http.ResponseWriter, r *http.Request) {
 func GetFilmsByTitle(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	title := vars["title"]
-	rating := vars["rating"]
-	category := vars["category"]
 
-	var film []models.Fil
+	var film models.Film
 
-	if len(title) > 0 {
-		film = db.GetFilmByTitle(title)
-	} else if len(rating) > 0 {
-		film = db.GetFilmByRating(rating)
-	} else {
-		film = db.GetFilmByCategory(category)
-	}
+	film = db.GetFilmByTitle(title)
 
 	res, _ := json.Marshal(film)
 
@@ -54,6 +46,7 @@ func GetFilmsByTitle(w http.ResponseWriter, r *http.Request) {
 func GetFilmsByRating(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	filmrating := vars["rating"]
+
 	film := db.GetFilmByRating(filmrating)
 
 	res, _ := json.Marshal(film)
@@ -67,7 +60,7 @@ func GetFilmsByCategory(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	category := vars["category"]
 
-	films := db.GetFilmByRating(category)
+	films := db.GetFilmByCategory(category)
 
 	res, _ := json.Marshal(films)
 
